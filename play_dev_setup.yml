@@ -53,7 +53,7 @@
 
     - name: Create home for code
       file: 
-        path: " {{ repo_home }}"
+        path: "{{ repo_home }}"
         state: directory
     
     - include_tasks: tasks/dotfiles.yml
