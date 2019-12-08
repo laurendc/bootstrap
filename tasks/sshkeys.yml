@@ -1,0 +1,17 @@
+- name: Create directory for ssh keys
+  file:
+    path: "{{ profile_dir }}/.ssh"
+    state: directory
+    mode: '0700'
+
+- name: Generate ssh keypair
+  openssh_keypair:
+    path: "{{ profile_dir }}/.ssh/{{ github_ssh_key }}"
+  register: ssh_key
+    
+- name: Add key to Github
+  github_key:
+    name: GitHub Access key for "{{ ansible_hostname }}"
+    token: "{{ github_token }}"
+    pubkey: "{{ ssh_public_key }}"
+  when: ssh_key is succeeded

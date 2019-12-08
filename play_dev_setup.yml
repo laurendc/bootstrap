@@ -1,0 +1,70 @@
+---
+##### Down and dirty laptop setup for macOS
+##### No guarantees this will work for anyone else. This was literally written as I cobbled my new laptop together & set up a VM for it. Fork it and make it your own.
+##### You will need:
+#####      - Homebrew: 
+#####         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#####      - A GitHub Access Token encrypted with Ansible Vault:
+#####        Get a token: https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+#####        Encrypt it using Ansible Vault: https://docs.ansible.com/ansible/latest/user_guide/vault.html#use-encrypt-string-to-create-encrypted-variables-to-embed-in-yaml
+#####      - Ansible: brew install ansible
+##### To run this: ansible-playbook --vault-id @prompt play_dev_setup.yml
+
+##### Currently working on: macOS Mojave (10.14.6)
+
+- hosts: localhost
+  gather_facts: true
+
+  vars_files: defaults/main.yml
+
+  vars:
+    brew_packages:
+      - git
+      - vim
+    brew_cask_packages:
+      - visual-studio-code
+      - iterm2
+      - google-chrome
+      - spotify
+      - docker
+      - slack
+      - amethyst
+      - keepassx
+      - onedrive
+    dotfiles:
+      - bash_profile
+      - profile
+      - bashrc
+      - vimrc
+      - vim
+ 
+  tasks:
+    - name: brew install packages
+      homebrew: 
+        name:
+          "{{ brew_packages }}"
+        state: present
+
+    - name: brew cask install packages
+      homebrew_cask:
+        name:
+          "{{ brew_cask_packages }}"
+        state: present
+
+    - name: Create home for code
+      file: 
+        path: " {{ repo_home }}"
+        state: directory
+    
+    - include_tasks: tasks/dotfiles.yml
+    - include_tasks: tasks/sshkeys.yml
+
+    # TODO: Add homebrew cask-drivers for displaylink driver setup (for Targus docking station)
+    #brew tap homebrew/cask-drivers
+    #brew cask install displaylink
+
+    # TODO: Add amythyst Accessibility allowance & start on login
+
+    # TODO:  Add Finder and Dock preferences
+
+    # TODO: Add FileVault encryption

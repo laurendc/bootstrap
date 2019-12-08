@@ -1,0 +1,10 @@
+- name: Clone dotfiles
+  git:
+    repo: git@github.com:laurendc/dotfiles.git
+    dest: "{{ repo_home }}/dotfiles/"
+    key_file: "{{ profile_dir }}/.ssh/{{ github_ssh_key }}"
+
+# This bash script really needs to get ported over to Ansible.
+# TODO: Port this over to Ansible.
+- name: Run shell script in dotfile repo to set up dotfiles
+  shell: "{{ repo_home }}/dotfiles/makesymlinks.sh"
