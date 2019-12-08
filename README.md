@@ -1,7 +1,5 @@
 # bootstrap
 
-## Purpose
-
 `bootstrap` is the home for all configs I use for various states of development; including my workstation setup
 
 We've got mostly Ansible in here so far with a bit of bash but I'm still in the process of porting over other setup-related items.
