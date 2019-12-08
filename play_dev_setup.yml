@@ -31,6 +31,7 @@
       - amethyst
       - keepassx
       - onedrive
+      - virtualbox
     dotfiles:
       - bash_profile
       - profile
@@ -44,12 +45,16 @@
         name:
           "{{ brew_packages }}"
         state: present
+      tags:
+        - install
 
     - name: brew cask install packages
       homebrew_cask:
         name:
           "{{ brew_cask_packages }}"
         state: present
+      tags:
+        - install
 
     - name: Create home for code
       file: 
