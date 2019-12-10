@@ -1,16 +1,7 @@
 ---
 ##### Down and dirty laptop setup for macOS
-##### No guarantees this will work for anyone else. This was literally written as I cobbled my new laptop together & set up a VM for it. Fork it and make it your own.
-##### You will need:
-#####      - Homebrew: 
-#####         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-#####      - A GitHub Access Token encrypted with Ansible Vault:
-#####        Get a token: https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
-#####        Encrypt it using Ansible Vault: https://docs.ansible.com/ansible/latest/user_guide/vault.html#use-encrypt-string-to-create-encrypted-variables-to-embed-in-yaml
-#####      - Ansible: brew install ansible
-##### To run this: ansible-playbook --vault-id @prompt play_dev_setup.yml
-
-##### Currently working on: macOS Mojave (10.14.6)
+##### No guarantees this will work for anyone else. 
+##### This was literally written as I cobbled my new laptop together.
 
 - hosts: localhost
   gather_facts: true
