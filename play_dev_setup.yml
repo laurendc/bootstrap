@@ -12,6 +12,10 @@
     brew_packages:
       - git
       - vim
+      - go
+      - fortune
+      - cowsay
+      - lolcat
     brew_cask_packages:
       - visual-studio-code
       - iterm2
