@@ -16,9 +16,3 @@ brew_cask_packages:
   - keepassx
   - onedrive
   - virtualbox
-dotfiles:
-  - bash_profile
-  - profile
-  - bashrc
-  - vimrc
-  - vim

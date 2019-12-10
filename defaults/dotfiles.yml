@@ -1,0 +1,6 @@
+dotfiles:
+  - bash_profile
+  - profile
+  - bashrc
+  - vimrc
+  - vim
