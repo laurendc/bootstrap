@@ -1,0 +1,24 @@
+brew_packages:
+  - git
+  - vim
+  - go
+  - fortune
+  - cowsay
+  - lolcat
+brew_cask_packages:
+  - visual-studio-code
+  - iterm2
+  - google-chrome
+  - spotify
+  - docker
+  - slack
+  - amethyst
+  - keepassx
+  - onedrive
+  - virtualbox
+dotfiles:
+  - bash_profile
+  - profile
+  - bashrc
+  - vimrc
+  - vim

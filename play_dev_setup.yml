@@ -6,33 +6,9 @@
 - hosts: localhost
   gather_facts: true
 
-  vars_files: defaults/main.yml
-
-  vars:
-    brew_packages:
-      - git
-      - vim
-      - go
-      - fortune
-      - cowsay
-      - lolcat
-    brew_cask_packages:
-      - visual-studio-code
-      - iterm2
-      - google-chrome
-      - spotify
-      - docker
-      - slack
-      - amethyst
-      - keepassx
-      - onedrive
-      - virtualbox
-    dotfiles:
-      - bash_profile
-      - profile
-      - bashrc
-      - vimrc
-      - vim
+  vars_files: 
+    - defaults/main.yml
+    - defaults/packages.yml
  
   tasks:
     - name: brew install packages
@@ -55,8 +31,13 @@
       file: 
         path: "{{ repo_home }}"
         state: directory
+      register: repo_home
     
     - include_tasks: tasks/dotfiles.yml
+      when: repo_home is succeeded
+      tags: 
+        - dotfiles
+
     - include_tasks: tasks/sshkeys.yml
 
     # TODO: Add homebrew cask-drivers for displaylink driver setup (for Targus docking station)
