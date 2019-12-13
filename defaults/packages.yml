@@ -16,3 +16,4 @@ brew_cask_packages:
   - keepassx
   - onedrive
   - virtualbox
+  - signal
