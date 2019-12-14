@@ -11,6 +11,13 @@
     - defaults/packages.yml
  
   tasks:
+    - name: Update brew
+      homebrew:
+        update_homebrew: yes
+        upgrade_all: yes
+      tags:
+        - install
+
     - name: brew install packages
       homebrew: 
         name:
@@ -18,6 +25,7 @@
         state: present
       tags:
         - install
+        - install_brew_packages
 
     - name: brew cask install packages
       homebrew_cask:
@@ -26,6 +34,7 @@
         state: present
       tags:
         - install
+        - install_brew_cask_packages
 
     - name: Create home for code
       file: 
@@ -43,8 +52,6 @@
     # TODO: Add homebrew cask-drivers for displaylink driver setup (for Targus docking station)
     #brew tap homebrew/cask-drivers
     #brew cask install displaylink
-
-    # TODO: Add amythyst Accessibility allowance & start on login
 
     # TODO:  Add Finder and Dock preferences
 
