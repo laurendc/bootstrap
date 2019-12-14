@@ -5,6 +5,7 @@ brew_packages:
   - fortune
   - cowsay
   - lolcat
+  - tree
 brew_cask_packages:
   - visual-studio-code
   - iterm2
@@ -12,8 +13,9 @@ brew_cask_packages:
   - spotify
   - docker
   - slack
-  - amethyst
   - keepassx
   - onedrive
   - virtualbox
   - signal
+  - rectangle
+  - istat-menus
