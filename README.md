@@ -13,4 +13,4 @@ This works on `macOS Mojave (10.14.6)`.
    * Encrypt it using Ansible Vault: https://docs.ansible.com/ansible/latest/user_guide/vault.html#use-encrypt-string-to-create-encrypted-variables-to-embed-in-yaml
 * Ansible: `brew install ansible`
 
-Once you've got the requirements squared away, you can run this by executing: `ansible-playbook --vault-id @prompt play_dev_setup.yml`
+Once you've got the requirements squared away, you can run this by executing: `ansible-playbook --vault-id @prompt main.yml`
