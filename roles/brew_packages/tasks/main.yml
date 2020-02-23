@@ -1,0 +1,27 @@
+---
+# tasks file for brew_packages
+
+- name: Update brew
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+  tags:
+    - install
+
+- name: brew install packages
+  homebrew: 
+    name:
+      "{{ brew_packages }}"
+    state: present
+  tags:
+    - install
+    - install_brew_packages
+
+- name: brew cask install packages
+  homebrew_cask:
+    name:
+      "{{ brew_cask_packages }}"
+    state: present
+  tags:
+    - install
+    - install_brew_cask_packages

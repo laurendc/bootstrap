@@ -1,3 +1,6 @@
+---
+# defaults file for brew_packages
+
 brew_packages:
   - git
   - vim
