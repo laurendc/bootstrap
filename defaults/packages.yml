@@ -14,8 +14,7 @@ brew_cask_packages:
   - docker
   - slack
   - keepassx
-  - onedrive
   - virtualbox
   - signal
-  - rectangle
   - istat-menus
+  - microsoft-office
